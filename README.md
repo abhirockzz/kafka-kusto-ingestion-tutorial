@@ -95,6 +95,14 @@ You will get a JSON response as such - please note down the `appId`, `password` 
 }
 ```
 
+4. Add permissions to your database
+
+Provide appropriate role to the Service principal you just created. To assign the `admin` role, [follow this guide](https://docs.microsoft.com/en-us/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal) to use the Azure portal or use the following command in your Data Explorer cluster
+
+```kusto
+.add database <database name> admins  ('aadapp=<service principal AppID>;<service prinicpal TenantID>') 'AAD App'
+```
+
 ## Step 2: Kusto Sink connector setup
 
 1. Start the containers:
