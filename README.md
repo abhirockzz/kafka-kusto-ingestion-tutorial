@@ -199,7 +199,7 @@ These are just few examples. Dig into the [Kusto Query Language documentation](h
 
 ## Reset and Clean up
 
-If you want to re-start from scratch, simply stop the containers (`docker-compose down -v`), delete (`drop table Storms`) and re-create the `Storms` table (along with the mapping) and re-start containers (`docker-compose up`)
+If you want to re-start from scratch, simply stop the containers (`docker-compose down -v`), delete (`.drop table Storms`) and re-create the `Storms` table (along with the mapping) and re-start containers (`docker-compose up`)
 
 To delete the Azure Data Explorer cluster/database, use [az cluster delete](https://docs.microsoft.com/cli/azure/kusto/cluster?view=azure-cli-latest#az-kusto-cluster-delete) or [az kusto database delete](https://docs.microsoft.com/cli/azure/kusto/database?view=azure-cli-latest#az-kusto-database-delete)
 
