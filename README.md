@@ -1,4 +1,4 @@
-# Quickstart: Ingestion from Kafka to Azure Data Explorer Kafka
+# Quickstart: Ingestion from Kafka to Azure Data Explorer
 
 This is a quickstart for getting up and running with a data ingestion setup from [Apache Kafka](https://kafka.apache.org/) to [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/data-explorer-overview) using the [Kusto Sink Connector](https://github.com/Azure/kafka-sink-azure-kusto). The goal is to get started *quickly*, so all the components in the sample app run in Docker containers - this includes Kafka, Zookeeper, Kafka Connect worker and the event generator application.
 
