@@ -1,6 +1,6 @@
 # Quickstart: Ingestion from Kafka to Azure Data Explorer
 
-This is a quickstart for getting up and running with a data ingestion setup from [Apache Kafka](https://kafka.apache.org/) to [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/data-explorer-overview) using the [Kusto Sink Connector](https://github.com/Azure/kafka-sink-azure-kusto). The goal is to get started *quickly*, so all the components in the sample app run in Docker containers - this includes Kafka, Zookeeper, Kafka Connect worker and the event generator application.
+This is a quickstart for getting up and running with a data ingestion setup from [Apache Kafka](https://kafka.apache.org/) to [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-explorer-overview?WT.mc_id=data-0000-abhishgu) using the [Kusto Sink Connector](https://github.com/Azure/kafka-sink-azure-kusto). The goal is to get started *quickly*, so all the components in the sample app run in Docker containers - this includes Kafka, Zookeeper, Kafka Connect worker and the event generator application.
 
 Here is the `docker-compose.yaml` in its entirety:
 
@@ -54,8 +54,8 @@ services:
 
 ## Pre-requisites
 
-- You will need a [Microsoft Azure account](https://docs.microsoft.com/azure/). Maybe try a [free one?](https://azure.microsoft.com/free/)
-- Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) if you don't have it already (should be quick!) or just use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) from your browser.
+- You will need a [Microsoft Azure account](https://docs.microsoft.com/azure/?WT.mc_id=data-0000-abhishgu). Maybe try a [free one?](https://azure.microsoft.com/free/?WT.mc_id=data-0000-abhishgu)
+- Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&WT.mc_id=data-0000-abhishgu) if you don't have it already (should be quick!) or just use the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/?WT.mc_id=data-0000-abhishgu) from your browser.
 - [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install) installed
 - Clone this repo
 
@@ -97,7 +97,7 @@ You will get a JSON response as such - please note down the `appId`, `password` 
 
 4. Add permissions to your database
 
-Provide appropriate role to the Service principal you just created. To assign the `admin` role, [follow this guide](https://docs.microsoft.com/en-us/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal) to use the Azure portal or use the following command in your Data Explorer cluster
+Provide appropriate role to the Service principal you just created. To assign the `admin` role, [follow this guide](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions?WT.mc_id=data-0000-abhishgu#manage-permissions-in-the-azure-portal) to use the Azure portal or use the following command in your Data Explorer cluster
 
 ```kusto
 .add database <database name> admins  ('aadapp=<service principal AppID>;<service prinicpal TenantID>') 'AAD App'
@@ -182,7 +182,7 @@ Storms
 | project StartTime, EndTime, Source, EventId
 ```
 
-Use the [`summarize`](https://docs.microsoft.com/azure/data-explorer/write-queries#summarize) operator
+Use the [`summarize`](https://docs.microsoft.com/azure/data-explorer/write-queries?WT.mc_id=data-0000-abhishgu#summarize) operator
 
 ```kusto
 Storms
@@ -194,14 +194,14 @@ Storms
 
 ![](adx-query.png)
 
-These are just few examples. Dig into the [Kusto Query Language documentation](https://docs.microsoft.com/azure/data-explorer/kusto/query/) or explore tutorials about [how to ingest JSON formatted sample data into Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-json-formats?tabs=kusto-query-language), using [scalar operators](https://docs.microsoft.com/azure/data-explorer/write-queries#scalar-operators), [timecharts](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer#timecharts) etc.
+These are just few examples. Dig into the [Kusto Query Language documentation](https://docs.microsoft.com/azure/data-explorer/kusto/query/?WT.mc_id=data-0000-abhishgu) or explore tutorials about [how to ingest JSON formatted sample data into Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-json-formats?tabs=kusto-query-language&WT.mc_id=data-0000-abhishgu), using [scalar operators](https://docs.microsoft.com/azure/data-explorer/write-queries?WT.mc_id=data-0000-abhishgu#scalar-operators), [timecharts](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer&WT.mc_id=data-0000-abhishgu#timecharts) etc.
 
 
 ## Reset and Clean up
 
 If you want to re-start from scratch, simply stop the containers (`docker-compose down -v`), delete (`.drop table Storms`) and re-create the `Storms` table (along with the mapping) and re-start containers (`docker-compose up`)
 
-To delete the Azure Data Explorer cluster/database, use [az cluster delete](https://docs.microsoft.com/cli/azure/kusto/cluster?view=azure-cli-latest#az-kusto-cluster-delete) or [az kusto database delete](https://docs.microsoft.com/cli/azure/kusto/database?view=azure-cli-latest#az-kusto-database-delete)
+To delete the Azure Data Explorer cluster/database, use [az cluster delete](https://docs.microsoft.com/cli/azure/kusto/cluster?view=azure-cli-latest&WT.mc_id=data-0000-abhishgu#az-kusto-cluster-delete) or [az kusto database delete](https://docs.microsoft.com/cli/azure/kusto/database?view=azure-cli-latest&WT.mc_id=data-0000-abhishgu#az-kusto-database-delete)
 
 ```azurecli
 az kusto cluster delete -n <cluster name> -g <resource group name>
